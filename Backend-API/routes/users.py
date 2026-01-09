@@ -111,6 +111,40 @@ def get_user(user_id):
     
     return jsonify(user), 200
 
+@users_bp.route('/users/by-email/<email>', methods=['GET'])
+def get_user_by_email(email):
+    """
+    Get user by email
+    ---
+    tags:
+      - Users
+    parameters:
+      - name: email
+        in: path
+        type: string
+        required: true
+        description: User email
+    responses:
+      200:
+        description: User details
+      404:
+        description: User not found
+      500:
+        description: Database error
+    """
+    db = MongoConnection.get_db()
+    
+    if db is None:
+        return jsonify({'error': 'Could not connect to the database'}), 500
+    
+    users_collection = db['users']
+    user = users_collection.find_one({'email': email})
+    
+    if user is None:
+        return jsonify({'error': 'User not found'}), 404
+    
+    return jsonify(user), 200
+
 @users_bp.route('/users/<user_id>/achievements', methods=['GET'])
 def get_user_achievements(user_id):
     """
