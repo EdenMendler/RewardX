@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Users from "./pages/Users";
 import Achievements from "./pages/Achievements";
@@ -8,7 +8,7 @@ import Events from "./pages/Events";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/users" element={<Users />} />
@@ -16,7 +16,7 @@ function App() {
         <Route path="/rules" element={<Rules />} />
         <Route path="/events" element={<Events />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
