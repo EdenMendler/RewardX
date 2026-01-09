@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/RewardX/static/css/main.875d9e9e.css",
-    "main.js": "/RewardX/static/js/main.1622605f.js",
+    "main.js": "/RewardX/static/js/main.0678fde8.js",
     "index.html": "/RewardX/index.html",
     "main.875d9e9e.css.map": "/RewardX/static/css/main.875d9e9e.css.map",
-    "main.1622605f.js.map": "/RewardX/static/js/main.1622605f.js.map"
+    "main.0678fde8.js.map": "/RewardX/static/js/main.0678fde8.js.map"
   },
   "entrypoints": [
     "static/css/main.875d9e9e.css",
-    "static/js/main.1622605f.js"
+    "static/js/main.0678fde8.js"
   ]
 }
