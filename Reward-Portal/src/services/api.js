@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "https://delighted-nanine-rewardx-76a4c86c.koyeb.app/api";
+const API_BASE_URL = "https://reward-x-bay.vercel.app/api";
 
 const api = axios.create({
   baseURL: API_BASE_URL,
