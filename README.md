@@ -89,7 +89,7 @@ maven { url = uri("https://jitpack.io") }
 
 2. **Add dependency** to `build.gradle`:
 ```kotlin
-implementation("com.github.YourUsername:RewardX:v1.0.0")
+implementation("com.github.EdenMendler:RewardX:v1.0.0")
 ```
 
 3. **Initialize and use**:
@@ -141,7 +141,7 @@ python app.py
 | Backend | Python, Flask, MongoDB |
 | Portal | React, TailwindCSS |
 | SDK | Kotlin, JitPack |
-| Demo App | Kotlin, Jetpack Compose |
+| Demo App | Kotlin |
 
 ## 🔐 Security
 
