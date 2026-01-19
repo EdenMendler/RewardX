@@ -39,6 +39,9 @@ def create_rule():
             field:
               type: string
               example: amount
+            category:
+              type: string
+              example: Salary
     responses:
       201:
         description: Rule created successfully
@@ -62,7 +65,8 @@ def create_rule():
         data['event_type'],
         data['condition_type'],
         data['threshold'],
-        data.get('field')
+        data.get('field'),
+        data.get('category')
     )
     
     rules_collection = db['rules']
