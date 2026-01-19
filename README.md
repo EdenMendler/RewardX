@@ -4,7 +4,7 @@ A complete, production-ready achievement tracking platform for mobile applicatio
 
 ## 🎬 Demo Video
 
-**[▶️ Watch Demo Video](https://github.com/EdenMendler/RewardX/blob/main/media/Demo%20Video.mp4)**
+**[▶️ Demo Video (in media folder)](https://github.com/EdenMendler/RewardX/tree/main/media)**
 
 ## 🔗 Links
 
