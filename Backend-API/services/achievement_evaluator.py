@@ -47,12 +47,19 @@ class AchievementEvaluator:
         condition_type = rule['condition_type']
         threshold = rule['threshold']
         
+        # Build base query with optional category filter
+        base_query = {
+            'user_id': user_id,
+            'event_type': rule['event_type']
+        }
+        
+        # Add category filter if specified in rule
+        if 'category' in rule:
+            base_query['event_data.category'] = rule['category']
+        
         if condition_type == 'count':
             # Count events of this type
-            count = db.events.count_documents({
-                'user_id': user_id,
-                'event_type': rule['event_type']
-            })
+            count = db.events.count_documents(base_query)
             return count >= threshold
         
         elif condition_type == 'sum':
@@ -62,10 +69,7 @@ class AchievementEvaluator:
                 return False
             
             pipeline = [
-                {'$match': {
-                    'user_id': user_id,
-                    'event_type': rule['event_type']
-                }},
+                {'$match': base_query},
                 {'$group': {
                     '_id': None,
                     'total': {'$sum': f'$event_data.{field}'}
@@ -78,10 +82,7 @@ class AchievementEvaluator:
         elif condition_type == 'unique_days':
             # Count unique days with events
             pipeline = [
-                {'$match': {
-                    'user_id': user_id,
-                    'event_type': rule['event_type']
-                }},
+                {'$match': base_query},
                 {'$group': {
                     '_id': {
                         '$dateToString': {
